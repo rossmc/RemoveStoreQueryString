@@ -15,7 +15,7 @@ class Rossmc_Rsqs_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * Should we remove default store code from URLs?
+     * Should we remove store query string from URLs?
      *
      * @return bool
      */
