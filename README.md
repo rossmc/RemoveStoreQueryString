@@ -9,15 +9,15 @@ For example http://www.example.com/?___store=french&___from_store=german would s
 See [this blog post](http://rossmchugh.com/remove-store-query-string-magento-module) for a more detailed explanation of how the code works.
 
 #### Installation
-* Download latest version [here](https://github.com/rossmc/RemoveStoreQueryString/archive/master.zip)
+* Download latest version [here](https://github.com/rossmc/RemoveStoreQueryString/archive/master.zip).
 * Unzip to Magento root folder.
 * Clear cache.
 * Logout from admin then login again to access module configuration.
 
 #### Configuration
 
-* Go to "System > Configuration > Web > Url Options".
-* Enable "Remove Store Query String".
+* Go to *System > Configuration > Web > Url Options*.
+* Enable *Remove Store Query String*.
 * Clear cache.
 
 ![Remove Store Query String Config](http://rossmchugh.com/wp-content/uploads/2015/10/remove-store-query-string-config.jpg)
