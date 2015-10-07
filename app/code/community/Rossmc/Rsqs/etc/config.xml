@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Rossmc_Rsqs>
+      <version>1.0.0</version>
+    </Rossmc_Rsqs>
+  </modules>
+  <global>
+    <helpers>
+      <rossmc_rsqs>
+        <class>Rossmc_Rsqs_Helper</class>
+      </rossmc_rsqs>
+    </helpers>
+    <events>
+      <controller_action_predispatch>
+        <observers>
+          <Rossmc_Rsqs_observer>
+            <type>singleton</type>
+            <class>Rossmc_Rsqs_Model_Observer</class>
+            <method>stripUrl</method>
+          </Rossmc_Rsqs_observer>
+        </observers>
+      </controller_action_predispatch>
+    </events>
+  </global>
+</config> 
