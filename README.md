@@ -14,7 +14,7 @@ See [this blog post](http://rossmchugh.com/remove-store-query-string-magento-mod
 * Clear cache.
 * Logout from admin then login again to access module configuration.
 
-### Configuration
+#### Configuration
 
 * Go to "System > Configuration > Web > Url Options".
 * Enable "Remove Store Query String".
