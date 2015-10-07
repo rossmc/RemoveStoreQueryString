@@ -1,6 +1,6 @@
 # RemoveStoreQueryString
 #### Overview
-RemoveStoreQueryString is a module for Magento which changes the behaviour of the frontend store switcher by removing the `___store` query string from the URL while still setting setting the correct `store` cookie.
+RemoveStoreQueryString is a module for Magento which changes the behaviour of the frontend store switcher by removing the `___store` query string from the URL while still setting the correct `store` cookie.
 
 For example http://www.example.com/?___store=french&___from_store=german would simply become http://www.example.com/.
 
@@ -10,7 +10,7 @@ See [this blog post](http://rossmchugh.com/remove-store-query-string-magento-mod
 
 #### Installation
 * Download latest version [here](https://github.com/rossmc/RemoveStoreQueryString/archive/master.zip)
-* Unzip in Magento root folder.
+* Unzip to Magento root folder.
 * Clear cache.
 * Logout from admin then login again to access module configuration.
 
