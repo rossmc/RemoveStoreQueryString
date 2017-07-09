@@ -3,12 +3,6 @@
   "license": "BSD-3-Clause",
   "type": "magento-module",
   "description": "Remove store query string",
-  "authors": [
-    {
-      "name": "Serhii Popov",
-      "email": "popow.sergiy@gmail.com"
-    }
-  ],
   "extra": {
     "map": [
       ["app/etc/modules/Rossmc_Rsqs.xml", "app/etc/modules/Rossmc_Rsqs.xml"],
