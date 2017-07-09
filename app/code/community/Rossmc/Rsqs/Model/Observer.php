@@ -26,7 +26,7 @@ class Rossmc_Rsqs_Model_Observer {
     public function replaceUrl($observer)
     {
         $block = $observer->getBlock();
-        if ($block instanceof Mage_Page_Block_Switch) {
+        if ($block instanceof Mage_Page_Block_Switch && $this->_canStripUrl()) {
             $transport = $observer->getTransport();
             $html = $transport->getHtml();
             $html = $this->_removeStoreQueryString($html);
