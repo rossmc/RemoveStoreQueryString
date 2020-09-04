@@ -4,8 +4,8 @@
  * @package     Rossmc_Rsqs
  * @version     1.0.0
  */
-class Rossmc_Rsqs_Model_Observer {
-
+class Rossmc_Rsqs_Model_Observer
+{
     /**
      * @param Varien_Event_Observer $observer
      */
@@ -31,6 +31,33 @@ class Rossmc_Rsqs_Model_Observer {
             $html = $transport->getHtml();
             $html = $this->_removeStoreQueryString($html);
             $transport->setHtml($html);
+        }
+    }
+
+    /**
+     * According to changes in Magneto 1.9 ___from_store param must be present in URL,
+     * otherwise condition in Mage_Core_Model_Url_Rewrite_Request::_rewriteDb won't work
+     * and 404 error will occurs.
+     *
+     * @param Varien_Event_Observer $observer
+     */
+    public function registerFromStoreParam($observer)
+    {
+        if (Mage::getStoreConfigFlag('web/url/use_store')) {
+            /** @var $front Mage_Core_Controller_Varien_Front */
+            $front = $observer->getEvent()->getFront();
+            $request = $front->getRequest();
+
+            $baseUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+            $refererUri = str_replace($baseUrl, '', $request->getServer('HTTP_REFERER'));
+
+            $parts = explode('/', $refererUri);
+            $storeCode = Mage::app()->getStore()->getCode();
+            $refererStoreCode = array_shift($parts);
+
+            if (in_array($refererStoreCode, $this->_getStoreCodes()) && $storeCode !== $refererStoreCode) {
+                $request->setQuery('___from_store', $refererStoreCode);
+            }
         }
     }
 
@@ -62,5 +89,19 @@ class Rossmc_Rsqs_Model_Observer {
         );
 
         return $changed;
+    }
+
+    /**
+     * @return array
+     */
+    protected function _getStoreCodes()
+    {
+        $storeCodes = [];
+        foreach (Mage::app()->getStores() as $store) {
+            /** @var $store Mage_Core_Model_Store */
+            $storeCodes[] = $store->getCode();
+        }
+
+        return $storeCodes;
     }
 }

@@ -12,6 +12,15 @@
             </rossmc_rsqs>
         </helpers>
         <events>
+            <controller_front_init_routers>
+                <observers>
+                    <Rossmc_Rsqs_router_observer>
+                        <type>singleton</type>
+                        <class>Rossmc_Rsqs_Model_Observer</class>
+                        <method>registerFromStoreParam</method>
+                    </Rossmc_Rsqs_router_observer>
+                </observers>
+            </controller_front_init_routers>
             <controller_action_predispatch>
                 <observers>
                     <Rossmc_Rsqs_observer>
