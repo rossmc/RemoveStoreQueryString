@@ -1,0 +1,12 @@
+{
+  "name": "rossmc/rsqs",
+  "license": "BSD-3-Clause",
+  "type": "magento-module",
+  "description": "Remove store query string",
+  "extra": {
+    "map": [
+      ["app/etc/modules/Rossmc_Rsqs.xml", "app/etc/modules/Rossmc_Rsqs.xml"],
+      ["app/code/community/Rossmc/Rsqs/", "app/code/community/Rossmc/Rsqs/"]
+    ]
+  }
+}
